@@ -9,7 +9,3 @@ console.log(parsedUrl.query);
 console.log(parsedUrl.host);
 console.log(parsedUrl.protocol);
 
-const googleUrl = url.parse("https://www.google.com/",
-    true
-  );
-console.log(googleUrl);
