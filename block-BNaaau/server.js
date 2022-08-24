@@ -24,7 +24,7 @@ server2.listen(5100);
 var server3 = http.createServer((req, res) => {
     console.log(req.headers);
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end(req.headers['user-agent']);
+    res.end(JSON.stringify(req.headers['user-agent']));
 });
 
 server3.listen(5555);
@@ -125,14 +125,14 @@ server11.listen(9000, () => {
 
 
 var server12 = http.createServer((req, res) => {
-    var parsedUrl = url.parse(req.url);
+    var parsedUrl = url.parse(req.url, true);
     console.log(parsedUrl.pathname);
     var reqUrl = req.url;
     console.log(`parsed url pathname is ${parsedUrl.pathname}`);
     console.log(`requested url is ${req.url}`);
     var query = parsedUrl.query;
     res.setHeader('Content-Type', 'application/json');
-    res.end(query);
+    res.end(JSON.stringify(query.email));
 });
 
 server12.listen(9500, () => {
